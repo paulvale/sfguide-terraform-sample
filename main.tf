@@ -10,6 +10,8 @@ terraform {
 provider "snowflake" {
   username = "tf-snow"
   private_key_path = "~/.ssh/snowflake_tf_snow_key.p8"
+  account = "VK78343"
+  region = "west-europe.azure"
   role = "SYSADMIN"
 }
 
@@ -26,6 +28,10 @@ resource "snowflake_warehouse" "warehouse" {
 provider "snowflake" {
   alias = "security_admin"
   role  = "SECURITYADMIN"
+  username = "tf-snow"
+  private_key_path = "~/.ssh/snowflake_tf_snow_key.p8"
+  account = "VK78343"
+  region = "west-europe.azure"
 }
 
 resource "snowflake_role" "role" {
